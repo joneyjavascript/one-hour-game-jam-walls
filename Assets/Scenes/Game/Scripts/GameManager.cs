@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour {
     private float _oldTimeScale;
     private bool paused = false;
 
+    private void Start()
+    {     
+        AudioManager.instance.Play("background");
+    }
+
     public void PauseGame()
     {
         if (paused)
@@ -38,6 +43,7 @@ public class GameManager : MonoBehaviour {
     }
     
     public void GotoScene(string nestSceneName) {
+        AudioManager.instance.StopMusic();
         SceneManager.LoadScene(nestSceneName);
     }
 

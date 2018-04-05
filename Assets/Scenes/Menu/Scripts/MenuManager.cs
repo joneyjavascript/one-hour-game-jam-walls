@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
 
+    private void Start()
+    {       
+        AudioManager.instance.Play("background");
+    }
+
     public void StartGame()
     {
         GotoScene("GameScene");
@@ -16,6 +21,7 @@ public class MenuManager : MonoBehaviour {
     }
     
     public void GotoScene(string nestSceneName) {
+        AudioManager.instance.StopMusic();
         SceneManager.LoadScene(nestSceneName);
     }
 
